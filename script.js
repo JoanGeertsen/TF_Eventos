@@ -46,7 +46,18 @@ document.getElementById('boton-enviar').addEventListener('click', function(event
     eventos.push(evento);
 
     // Muestra un mensaje de éxito
-    alert(`Evento ${evento.nombre} registrado con éxito`);
+    alert(`Evento ${evento.nombre} registrado con éxito.
+        Detalles:
+        Número: ${evento.numero}
+        Tipo: ${evento.tipo}
+        Fecha: ${evento.fecha}
+        Dirección: ${evento.direccion}
+        Ciudad: ${evento.ciudad}
+        Capacidad: ${evento.capacidad}
+        Gratuito: ${evento.gratuito ? 'Sí' : 'No'}
+        Costo: ${evento.costo}
+        Valoración: ${evento.valoracion}
+        Observaciones: ${evento.observaciones}`);
 
     // Resetea los campos del formulario
     document.getElementById('evento-form').reset();
