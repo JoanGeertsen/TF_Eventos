@@ -52,6 +52,14 @@ document.getElementById('boton-enviar').addEventListener('click', function(event
     document.getElementById('evento-form').reset();
 });
 
+const valorPuntuacion = document.getElementById('valorPuntuacion');
+const inputPuntuacion = document.getElementById('evento-puntuacion');
+
+inputPuntuacion.addEventListener('input', function() {
+    valorPuntuacion.textContent = inputPuntuacion.value;
+});
+
+
 document.getElementById('listarBtn').addEventListener('click', function() {
     let resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior
