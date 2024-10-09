@@ -1,12 +1,7 @@
 @media (max-width: 550px) {   
     body {
         font-size: 0.9rem;
-    }
-
-    /* Header */
-  
-
-   
+    }   
 
     /* Banner */
     .banner h1 {
@@ -143,10 +138,12 @@ nav ul li a:hover {
 }
 
 .evento {
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
     background-color: #1e1e1e;
     padding: 20px;
-    border-radius: 8px;
-    width: 30%;
+    border-radius: 8px;   
     text-align: center;
     transition: transform 0.3s;
 }
