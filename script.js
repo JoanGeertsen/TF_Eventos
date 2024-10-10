@@ -2,7 +2,7 @@ let eventos = [];
 let numeroEvento = 1;
 
 document.getElementById('boton-enviar').addEventListener('click', function(event) {
-    event.preventDefault();
+    //
 
     const eventoNombre = document.getElementById('evento-nombre').value;
     const tipoEvento = document.querySelector('input[name="evento-tipo"]:checked');
