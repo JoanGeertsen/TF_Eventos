@@ -1,9 +1,16 @@
 let eventos = [];
 let numeroEvento = 1;
 
-document.getElementById('boton-enviar').addEventListener('click', function(event) {
-    //
+//Función proximo de la teoría
+let proximo = (function () {
+    let numero = 0;
+    return function () {
+        numero++;
+        return numero;
+    };
+})();
 
+document.getElementById('boton-enviar').addEventListener('click', function(event) {    
     const eventoNombre = document.getElementById('evento-nombre').value;
     const tipoEvento = document.querySelector('input[name="evento-tipo"]:checked');
     const fechaEvento = document.getElementById('evento-fecha').value;
@@ -29,7 +36,7 @@ document.getElementById('boton-enviar').addEventListener('click', function(event
 
     // Crea el objeto del evento
     const evento = {
-        numero: numeroEvento++,
+        numero: proximo(),
         nombre: eventoNombre,
         tipo: tipoEvento.value,
         fecha: fechaEvento,
@@ -116,6 +123,7 @@ document.getElementById('buscarBtn').addEventListener('click', function() {
             let p = document.createElement('p');
             p.innerHTML = `<strong>${evento.nombre}</strong><br>
                            Fecha: ${evento.fecha}<br>
+                           Número evento: ${evento.numero}<br>
                            Tipo:  ${evento.tipo}<br>
                            Dirección: ${evento.direccion}<br>
                            Ciudad: ${evento.ciudad}<br>
@@ -157,6 +165,7 @@ document.getElementById('filtrarBtn').addEventListener('click', function() {
             let p = document.createElement('p');
             p.innerHTML = `<strong>${evento.nombre}</strong><br>
                            Fecha: ${evento.fecha}<br>
+                           Número evento: ${evento.numero}<br>
                            Tipo:  ${evento.tipo}<br>
                            Dirección: ${evento.direccion}<br>
                            Ciudad: ${evento.ciudad}<br>
