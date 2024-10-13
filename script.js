@@ -48,8 +48,7 @@ document.getElementById('boton-enviar').addEventListener('click', function(event
         valoracion: valoracion,
         observaciones: observaciones
     };
-
-    // Guarda el evento en el array
+    
     eventos.push(evento);
 
     // Muestra un mensaje de éxito
@@ -97,7 +96,7 @@ document.getElementById('listarBtn').addEventListener('click', function() {
     eventos.forEach(evento => {
         let p = document.createElement('p');
         p.innerHTML = `<strong>${evento.nombre}</strong> - ${evento.fecha}`;
-        p.classList.add('nombre-evento');  // Añadir una clase CSS
+        p.classList.add('nombre-evento'); 
         resultadoDiv.appendChild(p);
     });
 });
@@ -106,13 +105,13 @@ document.getElementById('listarBtn').addEventListener('click', function() {
 document.getElementById('buscarBtn').addEventListener('click', function() {
     const eventoNombre = prompt("Ingrese el nombre del evento a buscar:");
     let resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior
+    resultadoDiv.innerHTML = "";  
 
     // Buscar eventos cuyo nombre contenga la palabra buscada (ignorando mayúsculas/minúsculas)
     const eventosEncontrados = eventos.filter(e => e.nombre.toLowerCase().includes(eventoNombre.toLowerCase()));
     
     if (eventosEncontrados.length > 0) {
-        // Título con clase CSS
+        
         let titulo = document.createElement('h3');
         titulo.textContent = "resultados de la búsqueda:";
         titulo.classList.add('titulo-eventos');
@@ -135,7 +134,7 @@ document.getElementById('buscarBtn').addEventListener('click', function() {
             resultadoDiv.appendChild(p);
         });
     } else {
-        // Mostrar un mensaje si no se encontraron eventos
+        // Muestra un mensaje si no se encontraron eventos
         resultadoDiv.innerHTML = "<p>No se encontraron eventos con ese nombre.</p>";
     }
 });
@@ -144,9 +143,9 @@ document.getElementById('buscarBtn').addEventListener('click', function() {
 document.getElementById('filtrarBtn').addEventListener('click', function() {
     const city = prompt("Ingrese la ciudad para filtrar eventos:");
     let resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior
+    resultadoDiv.innerHTML = "";  
 
-    // Filtrar los eventos que coincidan con la ciudad (ignorando mayúsculas/minúsculas)
+    // Filtrar los eventos que coincidan con la ciudad (ignorando mayúsculas/minúsculas y tildes)
     const eventosFiltrados = eventos.filter(e => 
         e.ciudad.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === 
         city.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -154,13 +153,13 @@ document.getElementById('filtrarBtn').addEventListener('click', function() {
     
     
     if (eventosFiltrados.length > 0) {
-        // Título con clase CSS
+        
         let titulo = document.createElement('h3');
         titulo.textContent = "Eventos en " + city + ":";
         titulo.classList.add('titulo-eventos');
         resultadoDiv.appendChild(titulo);
 
-        // Mostrar los detalles de cada evento filtrado
+        
         eventosFiltrados.forEach(evento => {
             let p = document.createElement('p');
             p.innerHTML = `<strong>${evento.nombre}</strong><br>
@@ -177,7 +176,7 @@ document.getElementById('filtrarBtn').addEventListener('click', function() {
             resultadoDiv.appendChild(p);
         });
     } else {
-        // Mostrar un mensaje si no se encontraron eventos
+        
         resultadoDiv.innerHTML = `<p>No se encontraron eventos en la ciudad de ${city}.</p>`;
     }
 });
@@ -185,14 +184,14 @@ document.getElementById('filtrarBtn').addEventListener('click', function() {
 
 document.getElementById('extraBtn').addEventListener('click', function() {
     let resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior
+    resultadoDiv.innerHTML = "";  
     
     if (eventos.length === 0) {
         resultadoDiv.innerHTML = "<p>No hay eventos registrados aún.</p>";
         return;
     }
 
-    // Título con clase CSS
+    
     let titulo = document.createElement('h3');
     titulo.textContent = "Próximos eventos:";
     titulo.classList.add('titulo-eventos');
@@ -205,7 +204,7 @@ document.getElementById('extraBtn').addEventListener('click', function() {
     eventosOrdenados.forEach(evento => {
         let p = document.createElement('p');
         p.innerHTML = `<strong>${evento.nombre}</strong> - ${evento.fecha}`;
-        p.classList.add('nombre-evento');  // Añadir una clase CSS
+        p.classList.add('nombre-evento');  
         resultadoDiv.appendChild(p);
     });
 });
