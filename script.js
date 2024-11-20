@@ -10,7 +10,8 @@ let proximo = (function () {
     };
 })();
 
-document.getElementById('boton-enviar').addEventListener('click', function(event) {    
+document.getElementById('boton-enviar').addEventListener('click', function(event) {
+    event.preventDefault();    
     const eventoNombre = document.getElementById('evento-nombre').value;
     const tipoEvento = document.querySelector('input[name="evento-tipo"]:checked');
     const fechaEvento = document.getElementById('evento-fecha').value;
@@ -77,10 +78,11 @@ inputPuntuacion.addEventListener('input', function() {
 });
 
 
-document.getElementById('listarBtn').addEventListener('click', function() {
+document.getElementById('listarBtn').addEventListener('click', function(event) {
+    event.preventDefault();
     let resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior
-    
+    resultadoDiv.innerHTML = "";  // Limpiar el contenido anterior 
+    console.log(eventos.length);
     if (eventos.length === 0) {
         resultadoDiv.innerHTML = "<p>No hay eventos registrados aún.</p>";
         return;
